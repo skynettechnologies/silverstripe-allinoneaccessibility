@@ -1,0 +1,17 @@
+---
+Name: allinoneaccessibility
+---
+PageController:
+  extensions:
+    - Skynettechnologies\SilverstripeAllinoneaccessibility\SilverstripeAllinoneaccessibility
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - Skynettechnologies\SilverstripeAllinoneaccessibility\SilverstripeAllinoneaccessibilitySiteConfig
+---
+After:
+  - '#rootroutes'
+  - '#coreroutes'
+---
+SilverStripe\Control\Director:
+  rules:
+    fetchallinoneaccessibility: Skynettechnologies\SilverstripeAllinoneaccessibility\SilverstripeAllinoneaccessibilityController

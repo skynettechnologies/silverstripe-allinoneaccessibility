@@ -1,0 +1,37 @@
+{
+    "name": "skynettechnologies/silverstripe-allinoneaccessibility",
+    "description": "Quick Web Accessibility Implementation with All In One Accessibility!",
+    "type": "silverstripe-vendormodule",
+    "keywords": ["silverstripe","WCAG", "ATAG/nADA", "Section 508","accessibility compliance","disability friendly site","accessibility rules","web accessibility","compliance","WCAG 2.1",
+                "web accessibility widget","accessibility widget","accessibility plugin","web accessibility plugin","digital accessibility plugin",
+                "digital accessibility widget","web accessibility compliance","digital accessibility compliance","accessibe alternative","userways alternative",
+                "accessible website","Australian DDA","European EAA EN 301 549","UK Equality Act","Israeli Standard 5568"],
+    "license": "BSD-3-Clause",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "support": {
+        "issues": "https://www.skynettechnologies.com/report-accessibility-problem"
+    },
+    "authors": [{
+        "name": "Skynet Technologies USA LLC",
+        "email": "hello@skynettechnologies.com"
+    }],
+    "require": {
+        "silverstripe/cms": "^4.0",
+        "silverstripe/framework": "^4.0",
+        "silverstripe/vendor-plugin": "^1.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.x-dev"
+        },
+        "expose": [
+            "client/dist"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "Skynettechnologies\\SilverstripeAllinoneaccessibility\\": "src/"
+        }
+    }
+}
