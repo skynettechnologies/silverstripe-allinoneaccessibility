@@ -1,7 +1,10 @@
 # SilverStripe All in One Accessibility Module
 
 ## Overview
-Quick Web Accessibility Implementation with All In One Accessibility!*
+All in One Accessibility widget improves Silverstripe website ADA compliance and browser experience for ADA, WCAG 2.1, Section 508, Australian DDA, European EAA EN 301 549, UK Equality Act (EA), Israeli Standard 5568, California Unruh, Ontario AODA, Canada ACA, German BITV, and France RGAA Standards.
+
+It uses the accessibility interface which handles UI and design related adjustments. All in One Accessibility app enhances your Silverstripewebsite accessibility to people with hearing or vision impairments, motor impaired, color blind, dyslexia, cognitive & learning impairments, seizure and epileptic, and ADHD problems. It uses the accessibility interface which handles UI and design related adjustments.
+
 
 ## Maintainer Contacts
 *  Skynet Technologies USA LLC
