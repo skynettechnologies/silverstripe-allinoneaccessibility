@@ -1,6 +1,6 @@
 {
     "name": "skynettechnologies/silverstripe-allinoneaccessibility",
-    "description": "All in One Accessibility widget improves #PLATFORM NAME# website ADA compliance and browser experience for ADA,WCAG 2.1, Section 508, Australian DDA, European EAA EN 301 549, UK Equality Act (EA), Israeli Standard 5568,California Unruh, Ontario AODA, Canada ACA, German BITV, and France RGAA Standards.",
+    "description": "All in One Accessibility widget improves Silverstripe website ADA compliance and browser experience for ADA,WCAG 2.1, Section 508, Australian DDA, European EAA EN 301 549, UK Equality Act (EA), Israeli Standard 5568,California Unruh, Ontario AODA, Canada ACA, German BITV, and France RGAA Standards.",
     "type": "silverstripe-vendormodule",
     "keywords": ["silverstripe","WCAG", "ATAG","ADA", "Section 508","accessibility compliance","disability friendly site","accessibility rules","web accessibility","compliance","WCAG 2.1",
                 "web accessibility widget","accessibility widget","accessibility plugin","web accessibility plugin","digital accessibility plugin",
