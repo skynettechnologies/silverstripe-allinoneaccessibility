@@ -1,21 +1,8 @@
 
-    // if($(".is_valid_key").val() == 1){
-    //     $(".icontype-class").show();
-    //     $(".iconsize-class").show();
-    // }else{
-    //     //var iDiv = document.createElement("div");
-    //     //iDiv.id = 'licenseKeymsg';
-    //     //document.querySelector('#Form_EditForm_AioaWidgetLicenseKey_Holder .form__field-holder').appendChild(iDiv);
-    //     $('#licenseKeymsg').html("<span class='text-danger'>Key is Invalid!</span><p>Please <a href='https://www.skynettechnologies.com/add-ons/cart/?add-to-cart=116&variation_id=117&variation_id=117&quantity=1&utm_source=&utm_medium=typo3-extension&utm_campaign=purchase-plan' target='_blank'>Upgrade </a> to full version of All in One Accessibility Pro.</p>")
-    //     $(".icontype-class").hide();
-    //     $(".iconsize-class").hide();
-
-    //     setCouponBanner();
-    // }
     hideshow($(".is_valid_key").val());
     var bannerDiv = document.createElement("div");
     bannerDiv.id = 'dicount_banner';
-    document.getElementById('Root_Allinoneaccessibility').prepend(bannerDiv);
+    document.getElementById('Root_AllInOneAccessibility').prepend(bannerDiv);
 
     var iDiv = document.createElement("div");
     iDiv.id = 'licenseKeymsg';

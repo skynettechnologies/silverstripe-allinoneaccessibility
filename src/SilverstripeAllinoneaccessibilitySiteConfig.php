@@ -89,36 +89,6 @@ class SilverstripeAllinoneaccessibilitySiteConfig extends DataExtension
             ),
         ];
         
-        // $icon_type_items = [
-        //     new SelectionGroup_Item(
-        //         '',
-        //         new LiteralField('aioa-icon-type-1', ''),
-        //         ''
-        //     ),
-        //     new SelectionGroup_Item(
-        //         '',new LiteralField('aioa-icon-type-2', ''),''
-        //     ),
-        //     new SelectionGroup_Item(
-        //         '',new LiteralField('aioa-icon-type-3', ''),''
-        //     )
-        // ];
-        // $icon_size_items = [
-        //     new SelectionGroup_Item(
-        //         '',new LiteralField('aioa-big-icon', ''),''
-        //     ),
-        //     new SelectionGroup_Item(
-        //         '',new LiteralField('aioa-medium-icon', ''),''
-        //     ),
-        //     new SelectionGroup_Item(
-        //         '',new LiteralField('aioa-default-icon', ''),''
-        //     ),
-        //     new SelectionGroup_Item(
-        //         '',new LiteralField('aioa-small-icon', ''),''
-        //     ),
-        //     new SelectionGroup_Item(
-        //         '',new LiteralField('aioa-extra-small-icon', ''),''
-        //     )
-        // ];
         $icon_type_items = [
             new SelectionGroup_Item(
                 'aioa-icon-type-1',
@@ -161,9 +131,9 @@ class SilverstripeAllinoneaccessibilitySiteConfig extends DataExtension
         ];
 
         $fields->addFieldsToTab(
-            'Root.Allinoneaccessibility', [
+            'Root.AllInOneAccessibility', [
                 CheckboxField::create('AllinoneaccessibilityIsActive')
-                    ->setTitle(_t(__CLASS__.'IsActive', 'Allinoneaccessibility Is Active?')),
+                    ->setTitle(_t(__CLASS__.'IsActive', 'All in One Accessibility Is Active?')),
                 TextField::create('AioaWidgetLicenseKey')
                     ->setTitle(_t(__CLASS__.'Buttontitle', 'License Key')),
                 TextField::create('AioaWidgetColor')
