@@ -95,7 +95,8 @@
 
     $("#Form_EditForm_AioaWidgetLicenseKey").keyup(function(){
         
-        var server_name = "localhost";
+        var server_name = location.hostname;
+        
         var request = new XMLHttpRequest();
         var url =  'https://www.skynettechnologies.com/add-ons/license-api.php?';
         var params = "token=" + $(this).val() +"&server_name=" + server_name;
@@ -109,15 +110,6 @@
                 var response = JSON.parse(request.response);
                 hideshow(response.valid);
                 saveData();
-                // if (response.valid == 1) {
-                //     $(".icontype-class").show();
-                //     $(".iconsize-class").show();
-                //     $("#dicount_banner").hide();   
-                // }else{
-                //     $(".icontype-class").hide();
-                //     $(".iconsize-class").hide();
-                //     setCouponBanner();
-                // }
                 $(".is_valid_key").val(response.valid);
             }
             }
