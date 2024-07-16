@@ -13,15 +13,12 @@ Unlock over 70 features with the All in One Accessibility Widget through a paid 
 We provide a 10-day free trial. Get started [here](https://ada.skynettechnologies.us/trial-subscription?utm_source=all-in-one-accessibility&utm_medium=landing-page&utm_campaign=trial-subscription).
 
 
-## Maintainer Contacts
-*  Skynet Technologies USA LLC
-
 ## Requirements
 * SilverStripe CMS ^5.2.0
 * SilverStripe Framework ^5.2.0
 
 ## Version info
-The master branch of this module is currently aiming for SilverStripe 4.x compatibility
+The master branch of this module is currently aiming for SilverStripe 5.2 compatibility
 
 ## Installation Instructions
 
@@ -72,7 +69,7 @@ https://silverstripe.skynettechnologies.us/
 ## Documentation
 
 - [Purchase Silverstripe All in One Accessibility](https://www.skynettechnologies.com/silverstripe-website-accessibility)
-- [How to install All in One Accessibility App on ](https://www.skynettechnologies.com/blog/silverstripe-web-accessibility-widget-installation)
+- [How to install All in One Accessibility module on Sliverstripe](https://www.skynettechnologies.com/blog/silverstripe-web-accessibility-widget-installation)
 - [All in One Accessibility - Features Guide](https://www.skynettechnologies.com/sites/default/files/accessibility-widget-features-list.pdf)
 
 ## Submit a Support Request
