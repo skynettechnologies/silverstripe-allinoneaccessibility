@@ -45,7 +45,7 @@ class SilverstripeAllinoneaccessibilitySiteConfig extends DataExtension
 
     public function updateCMSFields(FieldList $fields)
     {
-        
+
         $position_items = [
             new SelectionGroup_Item(
                 'bottom_right',
@@ -88,7 +88,7 @@ class SilverstripeAllinoneaccessibilitySiteConfig extends DataExtension
                 'Middel Right'
             ),
         ];
-        
+
         $icon_type_items = [
             new SelectionGroup_Item(
                 'aioa-icon-type-1',
@@ -145,9 +145,9 @@ class SilverstripeAllinoneaccessibilitySiteConfig extends DataExtension
             ]
 
         );
-        
+
         Requirements::javascript('skynettechnologies/silverstripe-allinoneaccessibility:client/dist/javascript/jquery.aioa.js');
         Requirements::css('skynettechnologies/silverstripe-allinoneaccessibility:client/dist/css/jquery.aioa.css');
-        
+
     }
 }

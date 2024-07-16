@@ -1,5 +1,6 @@
 
     hideshow($(".is_valid_key").val());
+
     var bannerDiv = document.createElement("div");
     bannerDiv.id = 'dicount_banner';
     document.getElementById('Root_AllInOneAccessibility').prepend(bannerDiv);
@@ -7,6 +8,10 @@
     var iDiv = document.createElement("div");
     iDiv.id = 'licenseKeymsg';
     document.querySelector('#Form_EditForm_AioaWidgetLicenseKey_Holder .form__field-holder').appendChild(iDiv);
+
+    var keyDiv = document.createElement("div");
+    keyDiv.id = 'licenseKeyValidmsg';
+    document.querySelector('#licenseKeymsg').appendChild(keyDiv);
 
     let img = document.createElement('img');
     img.src = 'https://skynettechnologies.com/sites/default/files/python/aioa-icon-type-1.svg';
@@ -72,16 +77,8 @@
     img_size4.width = '35';
     img_size4.height = '35';
     document.querySelectorAll("input[name='AioaWidgetIconSize']")[4].parentElement.appendChild(img_size4);
-    // var items = document.querySelectorAll("input[name='AioaWidgetIconSize']");
-
-    // for (var i = items.length; i--;) {
-    //     console.log(i)
-    //     let img_size = document.createElement('img');
-    //     img_size.src = 'https://skynettechnologies.com/sites/default/files/python/aioa-icon-type-3.svg';
-    //     document.querySelectorAll("input[name='AioaWidgetIconSize']")[i].parentElement.appendChild(img_size);
-    // }
     function setCouponBanner(){
-        var coupon_url = 'https://www.skynettechnologies.com/add-ons/discount_offer.php?platform=contao';
+        var coupon_url = 'https://www.skynettechnologies.com/add-ons/discount_offer.php?platform=silverstripe';
         fetch(coupon_url)
         .then(function (response) {
             return response.text();
@@ -89,14 +86,24 @@
         .then(function (body) {
             $("#dicount_banner").html(body);
             var domain_name = window.location.origin
-            $('#licenseKeymsg').html("<span class='text-danger'>Key is Invalid!</span><p>Please <a href='https://www.skynettechnologies.com/add-ons/cart/?add-to-cart=116&variation_id=117&variation_id=117&quantity=1&utm_source="+domain_name+"&utm_medium=typo3-extension&utm_campaign=purchase-plan' target='_blank'>Upgrade </a> to full version of All in One Accessibility Pro.</p>")
+
+            //$('#licenseKeymsg').html("<p>Please <a href='https://www.skynettechnologies.com/add-ons/cart/?add-to-cart=116&variation_id=117&variation_id=117&quantity=1&utm_source="+domain_name+"&utm_medium=typo3-extension&utm_campaign=purchase-plan' target='_blank'>Upgrade </a> to full version of All in One Accessibility Pro.</p>")
+            console.log($('#Form_EditForm_AioaWidgetLicenseKey').val());
+            if($('#Form_EditForm_AioaWidgetLicenseKey').val() !== ''){
+              $('#licenseKeymsg').html('<p class="text-danger" style="margin-bottom: 1px;">Key is invalid</p>');
+            }
+            $('#licenseKeymsg').append("<p>Please <a href='https://www.skynettechnologies.com/add-ons/cart/?add-to-cart=116&variation_id=117&variation_id=117&quantity=1&utm_source="+domain_name+"&utm_medium=silverstripe-extension&utm_campaign=purchase-plan' target='_blank'>Upgrade </a> to full version of All in One Accessibility Pro.</p>")
+
+
+
+
         });
     }
 
     $("#Form_EditForm_AioaWidgetLicenseKey").keyup(function(){
-        
+
         var server_name = location.hostname;
-        
+
         var request = new XMLHttpRequest();
         var url =  'https://www.skynettechnologies.com/add-ons/license-api.php?';
         var params = "token=" + $(this).val() +"&server_name=" + server_name;
@@ -114,7 +121,7 @@
             }
             }
         };
-        request.send(params);   
+        request.send(params);
     });
 
     $("#Form_EditForm_AioaWidgetIconType").change(function(){
@@ -123,8 +130,15 @@
         arrSize.forEach(function(item){
             item.setAttribute("src","https://skynettechnologies.com/sites/default/files/python/"+img_val+".svg");
         });
-        
+        console.log('icon');
+        saveData();
     });
+
+    $("#Form_EditForm_AioaWidgetColor").change(function(){
+        console.log('color')
+        saveData();
+    });
+
 
     document.getElementById("Form_EditForm").onsubmit = function(){
         location.reload(true);
@@ -136,14 +150,14 @@
         var position = $('#Form_EditForm_AioaWidgetPosition ul li.selected label input').val();
         var icon_type = $('#Form_EditForm_AioaWidgetIconType ul li.selected label input').val();
         var icon_size = $('#Form_EditForm_AioaWidgetIconSize ul li.selected label input').val();
-        
+
         var request = new XMLHttpRequest();
         var url =  'https://ada.skynettechnologies.us/api/widget-setting-update-platform';
         var params = "u=" + server_name +"&widget_position=" + position +"&widget_color_code=" + color +"&widget_icon_type=" + icon_type +"&widget_icon_size="+ icon_size;
-    
+
         request.open('POST', url, true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    
+
         request.onreadystatechange = function() {
             if (request.readyState === XMLHttpRequest.DONE) {
               if (request.status === 200) {
@@ -158,12 +172,12 @@
             console.log(1);
             $(".icontype-class").show();
             $(".iconsize-class").show();
-            $("#dicount_banner").hide();  
-            $("#licenseKeymsg").hide();  
+            $("#dicount_banner").hide();
+            $("#licenseKeymsg").hide();
         }else{
             console.log(2);
-            $("#dicount_banner").show();  
-            $("#licenseKeymsg").show();  
+            $("#dicount_banner").show();
+            $("#licenseKeymsg").show();
             $(".icontype-class").hide();
             $(".iconsize-class").hide();
             setCouponBanner();
