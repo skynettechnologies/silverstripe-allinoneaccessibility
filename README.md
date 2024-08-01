@@ -1,9 +1,9 @@
 # SilverStripe All in One Accessibility Module
 
-All in One Accessibility AI free Widget Supports limited 23 features only and includes 140 Languages.
-
+All in One Accessibility AI free Widget Supports limited 23 features only and includes 140 Languages. 
+   
 It improves website ADA compliance and browser experience for ADA, WCAG 2.0, 2.1 & 2.2, Section 508, California Unruh Act, Australian DDA, European EAA EN 301 549, UK Equality Act (EA), Israeli Standard 5568, Ontario AODA, Canada ACA, German BITV, France RGAA, Brazilian Inclusion Law (LBI 13.146/2015), Spain UNE 139803:2012, JIS X 8341 (Japan), Italian Stanca Act and Switzerland DDA Standards.
-
+   
 Follows the best industry security, SEO practices and standards ISO 9001:2015 & ISO 27001:2013 and complies with GDPR, COPPA regulations. Member of W3C and International Association of Accessibility Professionals (IAAP). It is a flexible & lightweight widget that can be changed according to law and reduces the risk of time-consuming accessibility lawsuits.
 
 For more details/features, Please visit [All in One Accessibility](https://www.skynettechnologies.com/all-in-one-accessibility)
@@ -12,15 +12,16 @@ Unlock over 70 features with the All in One Accessibility Widget through a paid 
 
 We provide a 10-day free trial. Get started [here](https://ada.skynettechnologies.us/trial-subscription?utm_source=all-in-one-accessibility&utm_medium=landing-page&utm_campaign=trial-subscription).
 
+## Installation
 
-## Requirements
-* SilverStripe CMS ^5.2.0
-* SilverStripe Framework ^5.2.0
+### Prerequisites
+- SilverStripe CMS ^5.2.0
+- SilverStripe Framework ^5.2.0
 
 ## Version info
 The master branch of this module is currently aiming for SilverStripe 5.2 compatibility
 
-## Installation Instructions
+### Steps
 
 * Install via Composer
 ```
@@ -64,7 +65,7 @@ https://silverstripe.skynettechnologies.us/
 
 ## Video
 
-[![All in One Accessibility](https://img.youtube.com/vi/czwC0PKIqkc/0.jpg)](https://www.youtube.com/watch?v=czwC0PKIqkc)
+[![All in One Accessibility](https://img.youtube.com/vi/I-DjgZyleeI/0.jpg)](https://www.youtube.com/watch?v=I-DjgZyleeI)
 
 ## Documentation
 
@@ -99,4 +100,3 @@ This addon is developed and maintained by [Skynet Technologies USA LLC](https://
 
 ## Current Maintainers
 - [Skynet Technologies USA LLC](https://github.com/skynettechnologies)
-
