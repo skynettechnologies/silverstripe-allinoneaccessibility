@@ -21,6 +21,9 @@ body #main .ada-banner-section>.content{
 .ada-banner-section .inner-wrapper .code h3{
 	height: auto;
 }
+/* CSS for loader */
+
+
 #Form_EditForm_AioaWidgetIconSize {
     max-width: none;
     flex: 1;
@@ -30,6 +33,10 @@ body #main .ada-banner-section>.content{
     flex-wrap: wrap;
     margin-left: -15px;
     margin-right: -15px
+  }
+  #Form_EditForm_AioaWidgetIconSize_2
+  {
+      
   }
   #Form_EditForm_AioaWidgetPosition_Holder ul li {
     flex: 0 0 calc(25% - 30px);
