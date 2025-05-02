@@ -3,6 +3,8 @@
 const domain = window.location.hostname;
       
 console.log("domain : "+domain);
+
+// Default widget Setting data
 const defaultSettings = {
   widget_position: "bottom_right",
   widget_color_code: "#861818",
@@ -610,7 +612,7 @@ document.getElementById("Form_EditForm").onsubmit = function (event) {
   } else if (y_position_direction === "cust-pos-to-the-upper") {
       widget_position_top = custom_position_y;
   }
-  
+
   var params = new URLSearchParams({
       u: server_name,
       widget_position: icon_position,
@@ -626,7 +628,7 @@ document.getElementById("Form_EditForm").onsubmit = function (event) {
       widget_position_top: widget_position_top,
       widget_position_bottom: widget_position_bottom
   }).toString();
-  
+  /* Update Widget Settings on ADA dashboard */
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'https://ada.skynettechnologies.us/api/widget-setting-update-platform', true);
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -649,23 +651,6 @@ document.getElementById("Form_EditForm").onsubmit = function (event) {
   xhr.send(params);
   
 };
-
-
-
-
-
-
-
-
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     document.getElementById("Form_EditForm").addEventListener("onsubmit", function(event) {
-//         console.log('submit file loaded');
-//         event.preventDefault();
-//         console.log('Form submission intercepted');
-//         // Rest of the code...
-//     });
-// });
 
 
 

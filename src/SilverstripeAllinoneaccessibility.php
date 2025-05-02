@@ -52,7 +52,6 @@ class SilverstripeAllinoneaccessibility extends Extension
     {
         self::$include_allinoneaccessibility_policy_notification = (bool) $bool;
     }
-
     public static function allinoneaccessibility_policy_notification_enabled()
     {
         return self::$include_allinoneaccessibility_policy_notification;

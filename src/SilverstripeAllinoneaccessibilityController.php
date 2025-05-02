@@ -70,8 +70,7 @@ class SilverstripeAllinoneaccessibilityController extends Controller
     public function getAioaKeyValid()
     {
         return self::$current_site_config->AioaKeyValid;
-    }
-    
+    } 
     public static function set_current_site_config($input)
     {
         self::$current_site_config = $input;

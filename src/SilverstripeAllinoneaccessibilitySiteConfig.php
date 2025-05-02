@@ -85,7 +85,7 @@ class SilverstripeAllinoneaccessibilitySiteConfig extends DataExtension
           'transaction_id' => '',
           'subscr_id' => '',
           'payment_source' => ''
-      );   
+      );    
       // First API URL to fetch autologin link
       $apiUrl = "https://ada.skynettechnologies.us/api/get-autologin-link";
       
