@@ -23,132 +23,114 @@ use SilverStripe\Security\Group;
 
 class SilverstripeAllinoneaccessibilitySiteConfig extends DataExtension
 {
-  private static $db = array(
-    'AioaWidgetLicenseKey' => 'Varchar',
-    'AioaWidgetColor' => 'Varchar',
-    'AioaWidgetPosition' => "Enum('bottom_right,bottom_left,bottom_center,top_left, top_center,top_right,middel_left,middel_right', 'bottom_right')",
-    'AioaWidgetIconType' => "Enum('aioa-icon-type-1,aioa-icon-type-2,aioa-icon-type-3', 'aioa-icon-type-1')",
-    'AioaWidgetIconSize' => 'Varchar',
-    'AioaKeyValid' => 'Boolean',
-    'AllinoneaccessibilityIsActive' => 'Boolean',
-  );
+    private static $db = array(
+        'AioaWidgetLicenseKey' => 'Varchar',
+        'AioaWidgetColor' => 'Varchar',
+        'AioaWidgetPosition' => "Enum('bottom_right,bottom_left,bottom_center,top_left, top_center,top_right,middel_left,middel_right', 'bottom_right')",
+        'AioaWidgetIconType' => "Enum('aioa-icon-type-1,aioa-icon-type-2,aioa-icon-type-3', 'aioa-icon-type-1')",
+        'AioaWidgetIconSize' => 'Varchar',
+        'AioaKeyValid' => 'Boolean',
+        'AllinoneaccessibilityIsActive' => 'Boolean',
+    );
 
-  /**
-   * Exclude fields from translating via Fluent config.
-   */
-  private static $field_exclude = [
-    'AioaWidgetPosition',
-    'AioaWidgetIconType',
-    'AioaWidgetIconSize',
-    'AllinoneaccessibilityIsActive'
-  ];
+    /**
+     * Exclude fields from translating via Fluent config.
+     */
+    private static $field_exclude = [
+        'AioaWidgetPosition',
+        'AioaWidgetIconType',
+        'AioaWidgetIconSize',
+        'AllinoneaccessibilityIsActive'
+    ];
 
-  public function updateCMSFields(FieldList $fields)
-  {
+    public function updateCMSFields(FieldList $fields)
+    {
 
-    // Fetch user detail
-    $user = Security::getCurrentUser();
+        $websitename = $_SERVER['HTTP_HOST'];
+        // Display the server host URL
 
-    if ($user) {
 
-    $isAdmin = $user->inGroup('administrators');
+        // Add user API
+        $packageType = "free-widget";
+        // Array of details to send
+        $arrDetails = array(
+            'name' => $websitename,
+            'email' => 'no-reply@' . base64_encode($websitename) . '.com',
+            'company_name' => '',
+            'website' => base64_encode($websitename),
+            'package_type' => $packageType,
+            'start_date' => date(DATE_ISO8601),
+            'end_date' => '',
+            'price' => '',
+            'discount_price' => '0',
+            'platform' => 'SilverStripe',
+            'api_key' => '',
+            'is_trial_period' => '',
+            'is_free_widget' => '1',
+            'bill_address' => '',
+            'country' => '',
+            'state' => '',
+            'city' => '',
+            'post_code' => '',
+            'transaction_id' => '',
+            'subscr_id' => '',
+            'payment_source' => ''
+        );
+        // First API URL to fetch autologin link
+        $apiUrl = "https://ada.skynettechnologies.us/api/get-autologin-link";
 
-    if ($isAdmin) {
-      $username =$user->FirstName;
-      $userEmail = $user->Email;
-      $websitename = $_SERVER['HTTP_HOST'];
-      // Display the server host URL
+        // Set up cURL for the first API request
+        $ch = curl_init($apiUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['website' => base64_encode($websitename)]));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json'
+        ));
+        // Execute the request and get the response
+        $response = curl_exec($ch);
+        if (curl_errno($ch)) {
+        }
+        curl_close($ch);
 
-     
- // Add user API
-      $packageType = "free-widget";           
-      // Array of details to send
-      $arrDetails = array(
-          'name' => $username,
-          'email' => $userEmail,
-          'company_name' => '',
-          'website' => base64_encode($websitename),
-          'package_type' => $packageType,
-          'start_date' => date(DATE_ISO8601),
-          'end_date' => '',
-          'price' => '',
-          'discount_price' => '0',
-          'platform' => 'Craft',
-          'api_key' => '',
-          'is_trial_period' => '',
-          'is_free_widget' => '1',
-          'bill_address' => '',
-          'country' => '',
-          'state' => '',
-          'city' => '',
-          'post_code' => '',
-          'transaction_id' => '',
-          'subscr_id' => '',
-          'payment_source' => ''
-      );    
-      // First API URL to fetch autologin link
-      $apiUrl = "https://ada.skynettechnologies.us/api/get-autologin-link";
-      
-      // Set up cURL for the first API request
-      $ch = curl_init($apiUrl);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      curl_setopt($ch, CURLOPT_POST, true);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['website' => base64_encode($websitename)]));
-      curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-          'Content-Type: application/json'
-      ));
-      // Execute the request and get the response
-      $response = curl_exec($ch);
-      if(curl_errno($ch)) {
-        
-      }
-      curl_close($ch);
-      
-      // Decode the response to check if the link is present
-      $result = json_decode($response, true);
-      if (isset($result['link'])) {
-          // Successfully got the link
-      
-          
-      } else {
-          // Link not found, proceed with second API call
-          // Second API URL to add user domain
-          $secondApiUrl = "https://ada.skynettechnologies.us/api/add-user-domain";
-      
-          // Set up cURL for the second API request
-          $ch = curl_init($secondApiUrl);
-          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-          curl_setopt($ch, CURLOPT_POST, true);
-          curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrDetails));
-          curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-              'Content-Type: application/json'
-          ));
-          // Execute the second request and get the response
-          $response = curl_exec($ch);
-          if(curl_errno($ch)) {         
-          }
-          curl_close($ch);
-          // Decode the second response to handle the result
-          $data = json_decode($response, true);
-  
-       }
+        // Decode the response to check if the link is present
+        $result = json_decode($response, true);
+        if (isset($result['link'])) {
+            // Successfully got the link
 
-      
-    } else {
-       
-    }
-} else {
-   
-}
-  
-    $fields->addFieldsToTab(
-      'Root.AllInOneAccessibility',
-      [
-        CheckboxField::create('AllinoneaccessibilityIsActive')
-          ->setTitle(_t(__CLASS__ . 'IsActive', 'All in One Accessibility Is Active?')),
-        LiteralField::create(
-          'CustomHtml',
-          '<h1> </h1>
+
+        } else {
+            // Link not found, proceed with second API call
+            // Second API URL to add user domain
+            $secondApiUrl = "https://ada.skynettechnologies.us/api/add-user-domain";
+
+            // Set up cURL for the second API request
+            $ch = curl_init($secondApiUrl);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrDetails));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json'
+            ));
+            // Execute the second request and get the response
+            $response = curl_exec($ch);
+            if (curl_errno($ch)) {
+            }
+            curl_close($ch);
+            // Decode the second response to handle the result
+            $data = json_decode($response, true);
+        }
+
+
+
+        $fields->addFieldsToTab(
+            'Root.AllInOneAccessibility',
+            [
+                CheckboxField::create('AllinoneaccessibilityIsActive')
+                    ->setTitle(_t(__CLASS__ . 'IsActive', 'All in One Accessibility Is Active?')),
+                LiteralField::create(
+                    'CustomHtml',
+                    '<h1> </h1>
 <style>
 .btn [class*=" icon-"], .btn [class^=icon-], .s-btn [class*=" icon-"], .s-btn [class^=icon-], [class*=" icon-"], [class^=icon-], i.icon, span.icon {
     /* background-repeat: no-repeat; */
@@ -916,21 +898,21 @@ class SilverstripeAllinoneaccessibilitySiteConfig extends DataExtension
         </div>
       </div>
     </div>'
-        )
-      ]
+                )
+            ]
 
-    );
+        );
 
-    Requirements::javascript('https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js');
-    Requirements::javascript('https://code.jquery.com/jquery-3.6.4.min.js');
-    Requirements::javascript('skynettechnologies/silverstripe-allinoneaccessibility:client/dist/javascript/jquery.aioa.js');
-    Requirements::css('skynettechnologies/silverstripe-allinoneaccessibility:client/dist/css/jquery.aioa.css');
-    Requirements::customScript(<<<JS
+        Requirements::javascript('https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js');
+        Requirements::javascript('https://code.jquery.com/jquery-3.6.4.min.js');
+        Requirements::javascript('skynettechnologies/silverstripe-allinoneaccessibility:client/dist/javascript/jquery.aioa.js');
+        Requirements::css('skynettechnologies/silverstripe-allinoneaccessibility:client/dist/css/jquery.aioa.css');
+        Requirements::customScript(
+            <<<JS
         (function($) {
            console.log("Custom Js");
-           
         })(jQuery);
-    JS
-    );
-  }
+        JS
+        );
+    }
 }
