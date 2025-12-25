@@ -1,17 +1,17 @@
 ---
 Name: allinoneaccessibility
 ---
-PageController:
+# Attach frontend JS extension
+SilverStripe\CMS\Controllers\ContentController:
   extensions:
     - Skynettechnologies\SilverstripeAllinoneaccessibility\SilverstripeAllinoneaccessibility
+
+# Attach SiteConfig extension for admin settings
 SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - Skynettechnologies\SilverstripeAllinoneaccessibility\SilverstripeAllinoneaccessibilitySiteConfig
----
+
 After:
   - '#rootroutes'
   - '#coreroutes'
 ---
-SilverStripe\Control\Director:
-  rules:
-    fetchallinoneaccessibility: Skynettechnologies\SilverstripeAllinoneaccessibility\SilverstripeAllinoneaccessibilityController

@@ -155,8 +155,8 @@ English (USA), English (UK), English (Australian), English (Canadian), English (
 ## Installation
 
 ### Prerequisites
-- SilverStripe CMS ^5.2.0
-- SilverStripe Framework ^5.2.0
+- SilverStripe CMS ^6.1
+- SilverStripe Framework ^6.1
 
 ## Version info
 The master branch of this module is currently aiming for SilverStripe 5.2 compatibility
@@ -170,31 +170,16 @@ composer require "skynettechnologies/silverstripe-allinoneaccessibility"
 
 * Create a build with this command:
 ```
-php vendor/silverstripe/framework/cli-script.php dev/build
+php vendor/bin/sake dev/build
 ```
 
 * To create necessary tables run this command:
 ```
-php vendor/silverstripe/framework/cli-script.php dev/build flush=1
-```
-
-* To customize your “All in One Accessibility” Extension, Go to the Settings->Allinoneaccessibility section.
-
-## Usage with Fluent
-* Install [Fluent](https://github.com/tractorcow/silverstripe-fluent) on your project
-* Add to your YML configuration file an FluentExtension and these DB fields:
-```yml
-SilverStripe\SiteConfig\SiteConfig:
-  extensions:
-    - 'TractorCow\Fluent\Extension\FluentExtension'
-  translate:
-    - 'AioaWidgetPosition'
-    - 'AioaWidgetIconType'
-    - 'AioaWidgetIconSize'
-    - 'AioaWidgetColor'
-    - 'AioaWidgetLicenseKey'
+php vendor/bin/sake dev/build flush=all
 ```
 * Visit yoursite.com/dev/build?flush=1 to rebuild the database.
+
+* To customize your “All in One Accessibility” Extension, Go to the Admin->Allinoneaccessibility menu.
 
 ## Live Demo
 https://silverstripe.skynettechnologies.us/

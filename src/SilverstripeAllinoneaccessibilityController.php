@@ -3,7 +3,7 @@
 namespace Skynettechnologies\SilverstripeAllinoneaccessibility;
 
 use SilverStripe\Core\Config\Config;
-use SilverStripe\SiteConfig\SiteConfig;
+
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\HTTPRequest;
 
@@ -36,11 +36,6 @@ class SilverstripeAllinoneaccessibilityController extends Controller
         return $this->getResponse();
     }
 
-    public function doInit()
-    {
-        $siteConfig = SiteConfig::current_site_config();
-        self::set_current_site_config($siteConfig);
-    }
 
     public function getAioaWidgetLicenseKey()
     {
