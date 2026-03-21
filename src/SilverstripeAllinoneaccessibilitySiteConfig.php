@@ -28,9 +28,15 @@ class SilverstripeAllinoneaccessibilitySiteConfig extends Extension
     {
         Requirements::javascript('https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js');
         Requirements::javascript('https://code.jquery.com/jquery-3.6.4.min.js');
-        Requirements::javascript('_resources/skynettechnologies/silverstripe-allinoneaccessibility/client/dist/javascript/jquery.aioa.js');
-Requirements::css('_resources/skynettechnologies/silverstripe-allinoneaccessibility/client/dist/css/jquery.aioa.css');
+       
 
+Requirements::javascript(
+    'skynettechnologies/silverstripe-allinoneaccessibility:client/dist/javascript/jquery.aioa.js'
+);
+
+Requirements::css(
+    'skynettechnologies/silverstripe-allinoneaccessibility:client/dist/css/jquery.aioa.css'
+);
         Requirements::customScript(
             <<<JS
         (function($) {

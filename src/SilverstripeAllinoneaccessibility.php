@@ -9,8 +9,10 @@ class SilverstripeAllinoneaccessibility extends Extension
 {
     public function onAfterInit()
     {
-        Requirements::javascript(
-            '_resources/skynettechnologies/silverstripe-allinoneaccessibility/client/dist/javascript/widget.js'
-        );
+     
+
+Requirements::javascript(
+    'skynettechnologies/silverstripe-allinoneaccessibility:client/dist/javascript/widget.js'
+);
     }
 }

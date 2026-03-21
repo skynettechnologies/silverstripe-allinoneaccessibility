@@ -19,11 +19,15 @@ class AllInOneAccessibilityAdmin extends LeftAndMain
 {
     parent::init();
 
-    // Load CSS/JS assets
-    Requirements::javascript('https://code.jquery.com/jquery-3.6.4.min.js');
-  
-Requirements::javascript('_resources/skynettechnologies/silverstripe-allinoneaccessibility/client/dist/javascript/jquery.aioa.js');
-Requirements::css('_resources/skynettechnologies/silverstripe-allinoneaccessibility/client/dist/css/jquery.aioa.css');
+ Requirements::css(
+        'skynettechnologies/silverstripe-allinoneaccessibility:client/dist/css/jquery.aioa.css'
+    );
+
+    Requirements::javascript(
+        'skynettechnologies/silverstripe-allinoneaccessibility:client/dist/javascript/jquery.aioa.js',
+        ['defer' => true]
+    );
+   Requirements::javascript('https://code.jquery.com/jquery-3.6.4.min.js');
 
 }
 
@@ -33,7 +37,6 @@ Requirements::css('_resources/skynettechnologies/silverstripe-allinoneaccessibil
     public function getEditForm($id = null, $fields = null)
     {
         $websitename = $_SERVER['HTTP_HOST'];
-       // $websitename = 'silverstripeeutest3.dev.us';
         // Display the server host URL
 
 
@@ -42,7 +45,7 @@ Requirements::css('_resources/skynettechnologies/silverstripe-allinoneaccessibil
         // Array of details to send
         $arrDetails = array(
             'name' => $websitename,
-            'email' => 'no-reply@' . base64_encode($websitename) . '.com',
+            'email' => 'no-reply@' . $websitename,
             'company_name' => '',
             'website' => base64_encode($websitename),
             'package_type' => $packageType,
@@ -96,6 +99,8 @@ Requirements::css('_resources/skynettechnologies/silverstripe-allinoneaccessibil
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrDetails));
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                 'Content-Type: application/json'
             ));
@@ -299,14 +304,14 @@ Requirements::css('_resources/skynettechnologies/silverstripe-allinoneaccessibil
                   </div>
                   <div
                     class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
-                    <input type="radio" id="edit-position-middel-left" name="position" value="middel_left"
+                    <input type="radio" id="edit-position-middel-left" name="position" value="middle_left"
                       class="form-radio" />
 
                     <label for="edit-position-middel-left" class="option">Middle left</label>
                   </div>
                   <div
                     class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-position form-item-position">
-                    <input type="radio" id="edit-position-middel-right" name="position" value="middel_right"
+                    <input type="radio" id="edit-position-middel-right" name="position" value="middle_right"
                       class="form-radio" />
 
                     <label for="edit-position-middel-right" class="option">Middle Right</label>

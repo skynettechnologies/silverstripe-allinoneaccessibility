@@ -1,6 +1,6 @@
 {
     "name": "skynettechnologies/silverstripe-allinoneaccessibility",
-    "description": "All in One Accessibility widget improves Silverstripe website ADA compliance and browser experience for ADA, WCAG 2.1 & 2.2, Section 508, Australian DDA, European EAA EN 301 549, UK Equality Act (EA), Israeli Standard 5568, California Unruh, Ontario AODA, Canada ACA, German BITV, France RGAA, Brazilian Inclusion Law (LBI 13.146/2015), Spain UNE 139803:2012, JIS X 8341 (Japan), Italian Stanca Act and Switzerland DDA Standards.It uses the accessibility interface which handles UI and design related adjustments. All in One Accessibility app enhances your Silverstripe website accessibility to people with hearing or vision impairments, motor impaired, color blind, dyslexia, cognitive & learning impairments, seizure and epileptic, and ADHD problems.",
+    "description": "The free SilverStripe Accessibility plugin is designed for organizations that want to offer a more inclusive digital experience, it adds an accessibility widget that supports users with diverse needs through features aligned WCAG 2.1, 2.2, ADA, EAA, Section 508, France RGAA, California Unruh, European EAA EN 301 549, UK Equality Act, Spain UNE 139803:2012, Australian DDA, Israeli Standard 5568, Ontario AODA, Canada ACA, German BITV, Brazilian Inclusion Law (LBI 13.146/2015), JIS X 8341 (Japan), Italian Stanca Act, Indian RPwD Act, Switzerland DDA and other accessibility standards.",
     "type": "silverstripe-vendormodule",
     "keywords": ["silverstripe","WCAG", "ATAG","ADA", "Section 508","accessibility compliance","disability friendly site","accessibility rules","web accessibility","compliance","WCAG 2.1",
                 "web accessibility widget","accessibility widget","accessibility plugin","web accessibility plugin","digital accessibility plugin",
@@ -15,11 +15,11 @@
         "email": "hello@skynettechnologies.com"
     }],
     "require": {
-    "php": "^8.3",
-    "silverstripe/cms": "^6.1",
-    "silverstripe/framework": "^6.1",
-    "silverstripe/admin": "^3.0",
-    "silverstripe/vendor-plugin": "^2 || ^3"
+        "php": "^8.1 || ^8.2 || ^8.3",
+        "silverstripe/cms": "^5 || ^6",
+        "silverstripe/framework": "^5 || ^6",
+        "silverstripe/admin": "^2 || ^3",
+        "silverstripe/vendor-plugin": "^2 || ^3"
     },
     "extra": {
         "branch-alias": {
