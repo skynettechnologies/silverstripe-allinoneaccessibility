@@ -38,7 +38,31 @@ class AllInOneAccessibilityAdmin extends LeftAndMain
     {
         $websitename = $_SERVER['HTTP_HOST'];
         // Display the server host URL
+        // Display the server host URL
+        $ip = $_SERVER['REMOTE_ADDR'];
 
+        // Handle proxy / VPN / Cloudflare
+        if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'])[0];
+        }
+
+        $apiUrl = "https://ipwho.is/" . trim($ip);
+
+        $ch = curl_init($apiUrl);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_SSL_VERIFYPEER => false,
+        ]);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        $data = json_decode($response, true);
+        $isEU = $data['is_eu'] ?? 0;
+
+        // Print value (1 or 0)
+        $iseu = $isEU ? 0 : 1;
+       
 
         // Add user API
         $packageType = "free-widget";
@@ -64,7 +88,7 @@ class AllInOneAccessibilityAdmin extends LeftAndMain
             'post_code' => '',
             'transaction_id' => '',
             'subscr_id' => '',
-            'payment_source' => ''
+            'payment_source' => '',
         );
         // First API URL to fetch autologin link
         $apiUrl = "https://ada.skynettechnologies.us/api/get-autologin-link";
